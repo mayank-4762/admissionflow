@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admission Enquiry</title>
+<style>
+:root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#111827;background:#f3f4f6}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px}
+.card{width:min(100%,520px);background:#fff;border-radius:20px;padding:28px;box-shadow:0 12px 40px rgba(0,0,0,.08)}
+h1{margin:0 0 8px;font-size:28px}.sub{margin:0 0 22px;color:#6b7280}label{display:block;font-weight:600;margin:14px 0 7px}
+input,textarea,select{width:100%;border:1px solid #d1d5db;border-radius:10px;padding:12px 13px;font:inherit;background:#fff}
+textarea{min-height:100px;resize:vertical}.btn{width:100%;margin-top:20px;border:0;border-radius:11px;padding:13px 16px;font:inherit;font-weight:700;background:#111827;color:#fff;cursor:pointer}
+.note{margin-top:14px;font-size:13px;color:#6b7280;text-align:center}.success{display:none;text-align:center;padding:20px 4px}.success h2{margin:0 0 8px}.success p{color:#6b7280}
+</style>
+</head>
+<body>
+<main class="card">
+<section id="formWrap">
+<h1>Admission Enquiry</h1>
+<p class="sub">Fill in your details and our counsellor will contact you.</p>
+<form id="leadForm" action="https://hook.eu1.make.com/rp2rnyjmp2pntdvzavbzopqznnndn1cv" method="post">
+<label for="name">Student name *</label>
+<input id="name" name="name" required autocomplete="name">
+<label for="phone">Phone number *</label>
+<input id="phone" name="phone" required inputmode="tel" autocomplete="tel">
+<label for="email">Email</label>
+<input id="email" name="email" type="email" autocomplete="email">
+<label for="course">Course *</label>
+<input id="course" name="course" required placeholder="JEE / NEET / Foundation">
+<label for="source">How did you find us?</label>
+<select id="source" name="source">
+<option>Website</option><option>Google</option><option>Instagram</option><option>Facebook</option><option>Referral</option><option>Other</option>
+</select>
+<label for="institute">Institute</label>
+<input id="institute" name="institute" value="AdmissionFlow Demo Institute">
+<label for="message">Message</label>
+<textarea id="message" name="message" placeholder="Tell us what you are looking for..."></textarea>
+<input id="received_at" name="received_at" type="hidden">
+<button class="btn" type="submit">Submit Enquiry</button>
+<p class="note">Your details are sent securely to our admissions workflow.</p>
+</form>
+</section>
+<section id="success" class="success">
+<h2>Enquiry submitted ✅</h2>
+<p>Thank you. Our admissions counsellor will contact you shortly.</p>
+</section>
+</main>
+<script>
+const form=document.getElementById('leadForm');
+form.addEventListener('submit',()=>{document.getElementById('received_at').value=new Date().toISOString();document.querySelector('.btn').disabled=true;});
+if(new URLSearchParams(location.search).get('success')==='1'){document.getElementById('formWrap').style.display='none';document.getElementById('success').style.display='block';}
+</script>
+</body>
+</html>
