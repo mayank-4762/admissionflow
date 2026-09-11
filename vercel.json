@@ -1,6 +1,8 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
+    { "source": "/lead-form", "destination": "/lead-form.html" },
+    { "source": "/lead-form.html", "destination": "/lead-form.html" },
     { "source": "/onboarding", "destination": "/onboarding.html" },
     { "source": "/signup", "destination": "/onboarding.html" },
     { "source": "/verify", "destination": "/verify.html" },
