@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Cache-Control" content="no-store">
+<meta name="robots" content="noindex">
 <title>AdmissionFlow</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f5f7fb;color:#111827;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{max-width:960px;margin:auto;padding:24px}.card{background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:24px;margin:16px 0;box-shadow:0 3px 15px rgba(16,24,40,.05)}h1{margin-top:0}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px}button{font:inherit;padding:12px 16px;border:0;border-radius:10px;background:#4f46e5;color:#fff;font-weight:700}button.secondary{background:#eef2ff;color:#3730a3}p{color:#667085}
+*{box-sizing:border-box}body{margin:0;background:#f5f7fb;color:#111827;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{max-width:960px;margin:auto;padding:24px}.card{background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:28px;margin-top:24px;box-shadow:0 8px 30px rgba(16,24,40,.06)}h1{margin:0 0 8px;font-size:32px}p{color:#667085;line-height:1.6}.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}a.btn{display:inline-block;text-decoration:none;padding:13px 18px;border-radius:10px;background:#4f46e5;color:#fff;font-weight:700}.btn.secondary{background:#eef2ff;color:#3730a3}.status{margin-top:16px;font-size:13px;color:#667085}
 </style>
 </head>
 <body>
@@ -15,12 +15,11 @@
 <h1>AdmissionFlow</h1>
 <p>Admissions CRM for coaching institutes and schools.</p>
 <div class="row">
-<a href="/onboarding"><button>Create your institute</button></a>
-<a href="/login"><button class="secondary">Staff login</button></a>
+<a class="btn" href="/onboarding.html">Create your institute</a>
+<a class="btn secondary" href="/portal.html?view=login">Staff login</a>
 </div>
+<div class="status">System online.</div>
 </section>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="/app.js" defer></script>
 </body>
 </html>
