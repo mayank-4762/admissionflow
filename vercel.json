@@ -1,7 +1,14 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/home.html" },
-    { "source": "/onboarding", "destination": "/onboarding.html" },
+    { "source": "/onboarding", "destination": "/portal.html" },
+    { "source": "/signup", "destination": "/portal.html" },
+    { "source": "/verify", "destination": "/portal.html" },
+    { "source": "/login", "destination": "/portal.html" },
+    { "source": "/forgot-password", "destination": "/portal.html" },
+    { "source": "/reset-password", "destination": "/portal.html" },
+    { "source": "/dashboard", "destination": "/portal.html" },
+    { "source": "/settings", "destination": "/portal.html" },
     { "source": "/(.*)", "destination": "/app.html" }
   ]
 }
