@@ -2,19 +2,23 @@ name: Fix FlowForge assessment form
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 permissions:
   contents: write
 
 jobs:
   patch-form:
-    if: github.event.head_commit.message != 'fix: submit FlowForge assessment directly through Supabase REST'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Patch form submission
+        shell: bash
         run: |
+          if [ "$(git log -1 --pretty=%s)" = "fix: submit FlowForge assessment directly through Supabase REST" ]; then
+            exit 0
+          fi
           python - <<'PY'
           from pathlib import Path
           import re
