@@ -11,6 +11,7 @@
     { "source": "/reset-password", "destination": "/portal.html" },
     { "source": "/dashboard", "destination": "/portal.html" },
     { "source": "/settings", "destination": "/portal.html" },
+    { "source": "/demo-institute", "destination": "/demo-institute.html" },
     { "source": "/(.*)", "destination": "/app.html" }
   ]
 }
