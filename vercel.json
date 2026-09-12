@@ -12,6 +12,7 @@
     { "source": "/dashboard", "destination": "/portal.html" },
     { "source": "/settings", "destination": "/portal.html" },
     { "source": "/demo-institute", "destination": "/demo-institute.html" },
+    { "source": "/demo-dashboard", "destination": "/demo-dashboard.html" },
     { "source": "/(.*)", "destination": "/app.html" }
   ]
 }
