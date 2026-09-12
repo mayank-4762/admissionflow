@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   patch-form:
-    if: !contains(github.event.head_commit.message, 'chore: switch FlowForge assessment to Supabase REST')
+    if: ${{ !contains(github.event.head_commit.message, 'fix: submit FlowForge assessment directly through Supabase REST') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
