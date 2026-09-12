@@ -1,3 +1,0 @@
--- Applied to project tdzqkygwrdqqpjwculmf as migration admissionflow_multitenant_v3.
--- Includes institutes branding/slug, courses, batches, tenant-safe RPCs and RLS.
--- The live Supabase project already contains this migration; this file is retained as deployment documentation.
