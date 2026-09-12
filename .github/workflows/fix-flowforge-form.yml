@@ -16,7 +16,7 @@ jobs:
       - name: Patch form submission
         shell: bash
         run: |
-          if [ "$(git log -1 --pretty=%s)" = "fix: submit FlowForge assessment directly through Supabase REST" ]; then
+          if [ "$(git log -1 --pretty=%s)" = "fix: route FlowForge assessment through Edge Function" ]; then
             exit 0
           fi
           python - <<'PY'
@@ -24,7 +24,7 @@ jobs:
           import re
           p = Path('index.html')
           s = p.read_text()
-          new = r'''async function submitForm(e){e.preventDefault();const form=e.target;const btn=form.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Submitting...';try{const r=await fetch('https://tdzqkygwrdqqpjwculmf.supabase.co/rest/v1/flowforge_assessment_leads',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json','apikey':SUPABASE_PUBLISHABLE_KEY,'Prefer':'return=minimal'},body:JSON.stringify({business_type:document.getElementById('businessType').value,repetitive_task:document.getElementById('repetitiveTask').value,contact:document.getElementById('contact').value})});if(!r.ok){const t=await r.text();throw new Error('submit failed '+r.status+' '+t)}alert('Thanks — your assessment has been received.');form.reset();closeModal()}catch(err){console.error(err);alert('We could not submit the assessment. Please try again.')}finally{btn.disabled=false;btn.textContent='Submit assessment'}}'''
+          new = r'''async function submitForm(e){e.preventDefault();const form=e.target;const btn=form.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Submitting...';try{const r=await fetch('https://tdzqkygwrdqqpjwculmf.supabase.co/functions/v1/flowforge-assessment',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json','apikey':SUPABASE_PUBLISHABLE_KEY},body:JSON.stringify({business_type:document.getElementById('businessType').value,repetitive_task:document.getElementById('repetitiveTask').value,contact:document.getElementById('contact').value})});if(!r.ok){const t=await r.text();throw new Error('submit failed '+r.status+' '+t)}alert('Thanks — your assessment has been received.');form.reset();closeModal()}catch(err){console.error(err);alert('We could not submit the assessment. Please try again.')}finally{btn.disabled=false;btn.textContent='Submit assessment'}}'''
           pattern = r"async function submitForm\(e\)\{.*?\}\s*document\.getElementById\('modal'\)\.addEventListener"
           s2, n = re.subn(pattern, new + "document.getElementById('modal').addEventListener", s, flags=re.S)
           if n != 1:
@@ -37,5 +37,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --cached --quiet && exit 0
-          git commit -m "fix: submit FlowForge assessment directly through Supabase REST"
+          git commit -m "fix: route FlowForge assessment through Edge Function"
           git push
